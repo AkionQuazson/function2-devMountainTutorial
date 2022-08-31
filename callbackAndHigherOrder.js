@@ -118,7 +118,17 @@ contains(names, 'Colt', result => {
 */
 
 // CODE HERE
-
+const uniq = (arr, callback) => {
+	let modArray = JSON.parse(JSON.stringify(arr));
+	for (i = 0; i < modArray.length; i++) {
+		for (j = i + 1; j < modArray.length; j++) {
+			if (modArray[i] === modArray[j]) {
+				modArray.splice(j, 1);
+			}
+		}
+	}
+	callback(modArray);
+}
 
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
@@ -128,7 +138,9 @@ contains(names, 'Colt', result => {
 */
 
 // CODE HERE
-
+uniq(names, (list) => {
+	console.log(`The new names array with all the duplicate items removed is ${list}.`)
+})
 
 
 ////////// PROBLEM 6 //////////
@@ -139,7 +151,11 @@ contains(names, 'Colt', result => {
 */
 
 // CODE HERE 
-
+const each = (arr, callback) => {
+	for (i = 0; i < arr.length; i++) {
+		callback(arr[i], i);
+	}
+}
 
 /*
   Invoke the each function, passing in the names array and a callback function.
@@ -149,7 +165,9 @@ contains(names, 'Colt', result => {
 */
 
 // CODE HERE
-
+each(names, (item, index) => {
+	console.log(`The item at index ${index} is ${item}.`);
+})
 
 ////////// PROBLEM 7 //////////
 
