@@ -120,7 +120,7 @@ contains(names, 'Colt', result => {
 // CODE HERE
 const uniq = (arr, callback) => {
 	let modArray = JSON.parse(JSON.stringify(arr));
-	for (i = 0; i < modArray.length; i++) {
+	for (let i = 0; i < modArray.length; i++) {
 		for (j = i + 1; j < modArray.length; j++) {
 			if (modArray[i] === modArray[j]) {
 				modArray.splice(j, 1);
@@ -152,7 +152,7 @@ uniq(names, (list) => {
 
 // CODE HERE 
 const each = (arr, callback) => {
-	for (i = 0; i < arr.length; i++) {
+	for (let i = 0; i < arr.length; i++) {
 		callback(arr[i], i);
 	}
 }
@@ -202,7 +202,7 @@ var users = [
 
 // CODE HERE 
 const getUserById = (users, id, callback) => {
-	for (i = 0; i < users.length; i++) {
+	for (let i = 0; i < users.length; i++) {
 		if (users[i].id = id) {
 			callback(users[i]);
 			return;
@@ -235,6 +235,11 @@ getUserById(users, '16t', user => {
 */
 
 // CODE HERE
+const addingFactory = (num) => {
+	return (num2) => {
+		return (num + num2);
+	}
+}
 
 /*
   Now that you have addingFactory, you can create other
@@ -249,6 +254,7 @@ getUserById(users, '16t', user => {
 */
 
 // CODE HERE
+let addTen = addingFactory(10);
 
 /*
   Now the inner function is stored in the addTen variable! 
@@ -261,6 +267,8 @@ getUserById(users, '16t', user => {
 */
 
 // CODE HERE
+console.log(addTen(25));
+console.log(addTen(856));
 
 /*
   Let's make another function from the addingFactory. 
@@ -274,3 +282,7 @@ getUserById(users, '16t', user => {
 */
 
 // CODE HERE
+let addFour = addingFactory(4);
+console.log(addFour(5));
+console.log(addFour(12));
+console.log(addFour(47));
